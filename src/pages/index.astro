@@ -11,6 +11,8 @@ import hypeRaw from '../../public/images/hype_raw.jpg';
 import saiOrDie from '../../public/images/sai_or_die.jpg';
 import soFiah from '../../public/images/so_fiah.jpg';
 import sxz from '../../public/images/sxz.jpg';
+import risingOfHarders from '../../public/images/dettonate_rising_of_harders_2024.jpg';
+import echoesOfMadness from '../../public/images/dettonate_echoes_of_madness_2025.jpg';
 import facebookIcon from '../icons/social/facebook.svg?raw';
 import instagramIcon from '../icons/social/instagram.svg?raw';
 import tiktokIcon from '../icons/social/tiktok.svg?raw';
@@ -22,6 +24,10 @@ import '../styles/global.css';
 
 const tickets = 'https://newhorizons.funcapital.com';
 const venueMaps = 'https://maps.app.goo.gl/Xd3rA9iGBxmjTP5F6';
+const pastEditions = [
+  { name: 'Dettonate Rising Of Harders', image: risingOfHarders },
+  { name: 'Dettonate Echoes of Madness', image: echoesOfMadness },
+];
 const socialLinks: { name: string; icon: string; url: string | null }[] = [
   { name: 'Facebook', icon: facebookIcon, url: 'https://www.facebook.com/profile.php?id=61564629934221' },
   { name: 'Instagram', icon: instagramIcon, url: 'https://www.instagram.com/dettonate_gt/' },
@@ -256,6 +262,29 @@ const nationalFlyers = [
           </div>
           <div class="tickets-details"><p>10 de octubre de 2026 · 6:00 p. m.<br />The Secret Garden<br /><span>Ciudad de Guatemala</span></p><a class="button" href={tickets} target="_blank" rel="noopener noreferrer">Comprar entradas <span aria-hidden="true">↗</span></a><p class="ticket-note">Venta de entradas a través de FunCapital</p></div>
         </div>
+      </section>
+      <section class="past-editions section container" id="ediciones-pasadas" aria-labelledby="past-editions-title">
+        <div class="section-label">
+          <span class="section-number">04 /</span>
+          <h2 id="past-editions-title">Ediciones Pasadas</h2>
+        </div>
+        <ul class="past-editions-list">
+          {pastEditions.map((edition) => (
+            <li>
+              <article>
+                <Image
+                  src={edition.image}
+                  alt={`Flyer oficial de ${edition.name}`}
+                  widths={[360, 640, 960, 1240]}
+                  sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) calc(50vw - 40px), (max-width: 1336px) calc(50vw - 60px), 608px"
+                  format="webp"
+                  loading="lazy"
+                />
+                <h3>{edition.name}</h3>
+              </article>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
 
