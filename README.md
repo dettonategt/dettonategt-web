@@ -22,6 +22,18 @@ pnpm preview
 
 Los archivos publicables se generan en `dist/`.
 
+## Compartir con Cloudflare Tunnel
+
+Con `cloudflared` instalado, ejecuta:
+
+```sh
+pnpm share
+```
+
+El comando compila el sitio, sirve únicamente `dist/` en `127.0.0.1:4322` y abre un Quick Tunnel sin requerir una cuenta de Cloudflare. Comparte la dirección `https://…trycloudflare.com` que aparece en la terminal. Mantén la terminal abierta y el equipo conectado; `Ctrl+C` detiene el sitio y el túnel. Al reiniciarlo, se genera un enlace nuevo.
+
+Referencia: [Quick Tunnels de Cloudflare](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/).
+
 ## Edición
 
 - `src/pages/index.astro`: contenido, artistas y enlace a FunCapital.
