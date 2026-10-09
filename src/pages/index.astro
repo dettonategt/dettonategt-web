@@ -1,11 +1,125 @@
 ---
 import { Image } from 'astro:assets';
-import artwork from '../../public/images/main-banner.jpg';
+import hero from '../../public/images/hero.webp';
 import headliner from '../../public/images/headliner.jpg';
+import nationalLineup from '../../public/images/line_up_nacional.jpg';
+import a01001000k from '../../public/images/a01001000k.jpg';
+import dIan from '../../public/images/d-lan.jpg';
+import distukerz from '../../public/images/distukerz.jpg';
+import homura from '../../public/images/homura.jpg';
+import hypeRaw from '../../public/images/hype_raw.jpg';
+import saiOrDie from '../../public/images/sai_or_die.jpg';
+import soFiah from '../../public/images/so_fiah.jpg';
+import sxz from '../../public/images/sxz.jpg';
+import facebookIcon from '../icons/social/facebook.svg?raw';
+import instagramIcon from '../icons/social/instagram.svg?raw';
+import tiktokIcon from '../icons/social/tiktok.svg?raw';
+import '@fontsource/montserrat/latin-400.css';
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
 import '../styles/global.css';
 
 const tickets = 'https://newhorizons.funcapital.com';
-const artists = ['a01001000k', 'D-Ian', 'Distukerz', 'Homura', 'Hype Raw', 'Sai Or Die', 'So Fiah', 'SXZ'];
+const venueMaps = 'https://maps.app.goo.gl/Xd3rA9iGBxmjTP5F6';
+const socialLinks: { name: string; icon: string; url: string | null }[] = [
+  { name: 'Facebook', icon: facebookIcon, url: 'https://www.facebook.com/profile.php?id=61564629934221' },
+  { name: 'Instagram', icon: instagramIcon, url: 'https://www.instagram.com/dettonate_gt/' },
+  { name: 'TikTok', icon: tiktokIcon, url: 'https://www.tiktok.com/@dettonate_gt' },
+];
+const genres = [
+  'Early Hardcore',
+  'Hardcore',
+  'Tekstyle',
+  'Hardstyle',
+  'Euphoric Hardstyle',
+  'Raw',
+  'Xtra Raw',
+  'Hard Bounce',
+  'Hard Techno',
+  'Uptempo',
+];
+const nationalFlyers = [
+  {
+    name: 'Lineup nacional',
+    image: nationalLineup,
+    paragraphs: [
+      'El orgullo del Hard Dance guatemalteco al frente. 🇬🇹✊🏽',
+      'En 𝐃𝐞𝐭𝐭𝐨𝐧𝐚𝐭𝐞: 𝐍𝐞𝐰 𝐇𝐨𝐫𝐢𝐳𝐨𝐧𝐬 celebramos el talento de casa.\nPresentamos el escuadrón de DJs nacionales que hará vibrar cada rincón de esta tercera edición. 🩵',
+      'Junto a nuestro headliner internacional Level One calentarán la pista el 10 de octubre. 🗓️',
+      'Distukerz | D-Ian | Homura | Hype Raw | a01001000k | Sai Or Die | So Fiah | SXZ',
+      'Asegura tu lugar y apoyemos la escena que sigue creciendo.',
+    ],
+  },
+  {
+    name: 'a01001000k',
+    image: a01001000k,
+    paragraphs: [
+      'El colectivo a01001000k llega a Dettonate de la mano de sus representantes AN4 y KIYOH. 👟🖤',
+      'Ambos estarán encargados de traer el Early Hardcore a nuestra tercera edición. 🩵🤩',
+      'Saquen sus mejores zapatillas, porque estos chicos nos pondrán a bailar toda la noche 🥵',
+    ],
+  },
+  {
+    name: 'D-Ian',
+    image: dIan,
+    paragraphs: [
+      'La nueva generación del Hardstyle llega a 𝗗𝗲𝘁𝘁𝗼𝗻𝗮𝘁𝗲: 𝗡𝗲𝘄 𝗛𝗼𝗿𝗶𝘇𝗼𝗻𝘀 🩵🔥',
+      'D-lan se une a la alienación de nuestra tercera entrega este 10 de Octubre, representando a la nueva generación del Hardstyle en el país. 🤩🇬🇹',
+    ],
+  },
+  {
+    name: 'Distukerz',
+    image: distukerz,
+    paragraphs: [
+      'Luego de muchos años de silencio, el dúo DISTUKERZ regresa a la escena Hardstyle, y esta vez para hacer su debut en nuestra tercera entrega de DETTONATE. 🩵🔥',
+      'Un proyecto que representa a la vieja escuela del Hard Dance local. 🔥🇬🇹',
+    ],
+  },
+  {
+    name: 'Homura',
+    image: homura,
+    paragraphs: [
+      'Tenemos un nuevo artista de Hardstyle en la ciudad. 🏙️\nHomura llega a 𝗗𝗲𝘁𝘁𝗼𝗻𝗮𝘁𝗲: 𝗡𝗲𝘄 𝗛𝗼𝗿𝗶𝘇𝗼𝗻𝘀. 🩵',
+      'Si lo que quieres escuchar es 100% Hardstyle, Homura nos dará la dosis necesaria. 🔥🤩',
+    ],
+  },
+  {
+    name: 'Hype Raw',
+    image: hypeRaw,
+    paragraphs: [
+      'Hype Raw llega a la tercera entrega de Dettonate con una selección de Hard Classics para esta edición tan especial. 😮‍💨🩵',
+      'Una presentación que reunirá todos esos tracks que son un clásico en la escena Hard, y que contará con un show especial que no te puedes perder. 👟',
+    ],
+  },
+  {
+    name: 'Sai Or Die',
+    image: saiOrDie,
+    paragraphs: [
+      '¿Pensaron que nos olvidamos de los amantes del Uptempo? 😏\n𝗦𝗮𝗶 𝗢𝗿 𝗗𝗶𝗲 está de regreso en Dettonate.🩵😳',
+      'Les dejamos una probadita de lo que nos espera en esta brutal presentación 💀🔥',
+    ],
+  },
+  {
+    name: 'So Fiah',
+    image: soFiah,
+    paragraphs: [
+      'SO FIAH llega a Dettonate: New Horizons\nUna chica de origen guatemalteco, pero sus inicios fueron en Polonia 🇵🇱',
+      'Manejando grooves oscuros, ritmos hipnóticos, texturas superpuestas y una sensación constante de tensión mantienen la pista de baile en constante movimiento.',
+      'Ha actuado en directo en el ADE para 240KM/H y ha compartido su sonido por toda Europa, Asia, Norteamérica y Centroamérica, consolidando su presencia en\nel circuito del techno rápido y vanguardista.',
+      'Demos la bienvenida a So Fiah a nuestra tercera entrega 🩵🤩🔥',
+    ],
+  },
+  {
+    name: 'SXZ',
+    image: sxz,
+    paragraphs: [
+      'Los chicos misteriosos de SXZ llegan a la ciudad. 🏙️',
+      'Este proyecto llega a 𝗗𝗲𝘁𝘁𝗼𝗻𝗮𝘁𝗲: 𝗡𝗲𝘄 𝗛𝗼𝗿𝗶𝘇𝗼𝗻𝘀 🩵 con el poder del Hardstyle y del Hardcore Millenium. 🖤🔥',
+      'Démosle una calurosa bienvenida a este gran proyecto que ha surgido dentro de la escena Hard Dance Local. 🤩👊🏽',
+    ],
+  },
+];
 ---
 
 <!doctype html>
@@ -17,7 +131,7 @@ const artists = ['a01001000k', 'D-Ian', 'Distukerz', 'Homura', 'Hype Raw', 'Sai 
     <meta name="description" content="DETTONATE — NEW HORIZONS. Hardstyle, Hardcore y Hard Dance en Guatemala. 10 de octubre de 2026, 6:00 p. m., The Secret Garden. Entradas en FunCapital." />
     <title>DETTONATE — NEW HORIZONS · Guatemala 2026</title>
     <meta property="og:title" content="DETTONATE — NEW HORIZONS" />
-    <meta property="og:description" content="Una nueva etapa del Hard Dance en Guatemala. 10.10.2026 · The Secret Garden · 6:00 p. m." />
+    <meta property="og:description" content="DETTONATE — NEW HORIZONS · 10 de octubre de 2026 · The Secret Garden · Ciudad de Guatemala · 6:00 p. m." />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
@@ -29,66 +143,143 @@ const artists = ['a01001000k', 'D-Ian', 'Distukerz', 'Homura', 'Hype Raw', 'Sai 
         <span>DETTONATE<span class="brand-location">GUATEMALA</span></span>
       </a>
       <nav aria-label="Navegación principal">
-        <a href="#concepto">El evento</a>
-        <a href="#lineup">Lineup</a>
-        <a class="nav-ticket" href={tickets} target="_blank" rel="noopener noreferrer">Entradas <span aria-hidden="true">↗</span></a>
+        <a href={tickets} target="_blank" rel="noopener noreferrer">Tickets</a>
+        <a href="#lineup">Line Up</a>
+        <button type="button" disabled>FAQ</button>
+        <a href="#concepto">Info</a>
+        <button type="button" disabled>Contacto</button>
       </nav>
+      <button class="nav-register" type="button" disabled>Registro <span aria-hidden="true">↗</span></button>
     </header>
 
     <main id="contenido">
-      <section class="hero container" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> TERCERA EDICIÓN / 2026</p>
-          <h1 id="hero-title">NEW<br /><span>HORIZONS</span><span class="title-period" aria-hidden="true">.</span></h1>
-          <p class="hero-description">Nuevos horizontes.<br />La misma energía que nos une.</p>
-          <a class="button" href={tickets} target="_blank" rel="noopener noreferrer">Comprar entradas <span aria-hidden="true">↗</span></a>
-          <p class="ticket-note">Disponibles en FunCapital</p>
-        </div>
-        <div class="hero-visual">
-          <div class="art-frame">
-            <Image src={artwork} alt="Arte de NEW HORIZONS: emblema futurista de DETTONATE, un reloj y fragmentos luminosos en tonos cian." widths={[480, 800, 1200]} sizes="(max-width: 700px) 100vw, 50vw" format="webp" loading="eager" fetchpriority="high" class="hero-art" />
-            <span class="art-corner corner-top" aria-hidden="true"></span>
-            <span class="art-corner corner-bottom" aria-hidden="true"></span>
-          </div>
-          <div class="art-caption"><span>DETTONATE / NEW HORIZONS</span><span>GT — 03</span></div>
-        </div>
+      <section class="hero container" id="inicio" aria-label="DETTONATE — NEW HORIZONS">
+        <Image
+          class="hero-banner"
+          src={hero}
+          alt="Banner oficial de DETTONATE — NEW HORIZONS"
+          widths={[480, 800, 1240, 1920]}
+          sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) calc(100vw - 56px), (max-width: 1336px) calc(100vw - 96px), 1240px"
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+        />
       </section>
 
       <div class="event-strip container" aria-label="Información del evento">
         <div><span class="small-label">CUÁNDO</span><p><time datetime="2026-10-10">10 OCT 2026</time></p></div>
         <div><span class="small-label">A QUÉ HORA</span><p>6:00 P. M.</p></div>
-        <div class="venue"><span class="small-label">DÓNDE</span><p>THE SECRET GARDEN<span>Ciudad de Guatemala</span></p></div>
-        <a href="#lineup" class="strip-link">Descubre el lineup <span aria-hidden="true">↓</span></a>
+        <div class="venue">
+          <span class="small-label">DÓNDE</span>
+          <p>
+            <a class="venue-link" href={venueMaps} target="_blank" rel="noopener noreferrer" aria-label="The Secret Garden: abrir ubicación en Google Maps">
+              <svg class="location-pin" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              THE SECRET GARDEN
+            </a>
+            <span>Ciudad de Guatemala</span>
+          </p>
+        </div>
+        <a href="#lineup" class="strip-link">Line Up <span aria-hidden="true">↓</span></a>
       </div>
 
       <section class="concept section container" id="concepto" aria-labelledby="concept-title">
-        <div class="section-label"><span class="section-number">01 /</span><span>EL EVENTO</span></div>
+        <div class="section-label"><span class="section-number">01 /</span><span>INFO</span></div>
         <div class="concept-content">
-          <h2 id="concept-title">El siguiente capítulo<br />se escribe <span>juntos.</span></h2>
+          <h2 id="concept-title">DETTONATE — NEW HORIZONS</h2>
           <div class="concept-description">
-            <p>DETTONATE reúne a la comunidad de Hardstyle, Hardcore y Hard Dance en Guatemala. Un encuentro entre artistas nacionales e internacionales para impulsar nuestra escena y llevar su energía más lejos.</p>
-            <p>NEW HORIZONS, nuestra tercera edición, abre una nueva etapa: explorar nuevos horizontes, superar límites y crear oportunidades para nuevos artistas y experiencias.</p>
+            <div class="official-description">
+              <p>DETTONATE es un evento creado por y para los amantes del hard dance en Guatemala. Este 10 de octubre regresa a la ciudad con su tercera edición: NEW HORIZONS. 🩵🔥</p>
+              <p>Esta edición abre una nueva etapa para la escena del país, con nuevas posibilidades y experiencias, una producción renovada y artistas nacionales e internacionales.</p>
+              <p>La preventa inicial se agotó, reflejando el entusiasmo de la comunidad por ser parte de este nuevo capítulo del hard dance guatemalteco.</p>
+            </div>
           </div>
-          <div class="genres" aria-label="Géneros musicales"><span>HARDSTYLE</span><span>HARDCORE</span><span>HARD DANCE</span></div>
+          <div class="genres" aria-label="Géneros musicales">
+            {genres.map((genre) => <span>{genre}</span>)}
+          </div>
         </div>
       </section>
 
       <section class="lineup section container" id="lineup" aria-labelledby="lineup-title">
-        <div class="section-heading"><div class="section-label"><span class="section-number">02 /</span><span>LOS ARTISTAS</span></div><span class="small-label">NUEVE ARTISTAS. UNA MISMA ENERGÍA.</span></div>
-        <h2 id="lineup-title" class="display-heading">THE LINEUP<span aria-hidden="true">↗</span></h2>
+        <div class="section-heading">
+          <div class="section-label"><span class="section-number">02 /</span><span>LINEUP</span></div>
+        </div>
+        <h2 id="lineup-title" class="display-heading">LINEUP<span aria-hidden="true">↗</span></h2>
         <div class="headliner">
           <div class="headliner-image"><Image src={headliner} alt="Flyer oficial del headliner Level One para DETTONATE — NEW HORIZONS." widths={[480, 720]} sizes="(max-width: 700px) 100vw, 35vw" format="webp" loading="lazy" /></div>
-          <div class="headliner-copy"><p class="eyebrow">HEADLINER</p><h3>LEVEL<br /><span>ONE</span></h3><p>Al frente de una noche que abre nuevos horizontes para el Hard Dance en Guatemala.</p><span class="headliner-index" aria-hidden="true">01 — 09</span></div>
+          <div class="headliner-copy">
+            <div class="headliner-description">
+              <p>⚡️Level One ⚡️</p>
+              <p>Llega por primera a Guatemala 🇬🇹 directo desde Scantraxx Records con el poder del OG Raw, convirtiéndose en el headliner oficial de Dettonate: New Horizons. 🩵</p>
+              <p>¿Están listos para la noche más pesada del año?</p>
+              <p>⚡ Boletos de Fase 1 ya disponibles ahora. (Incluye 01 bebida)</p>
+            </div>
+          </div>
         </div>
-        <ul class="artist-list" aria-label="Artistas del lineup">{artists.map((artist, i) => <li><span class="artist-number" aria-hidden="true">{String(i + 2).padStart(2, '0')}</span><h3>{artist}</h3><span class="artist-plus" aria-hidden="true">+</span></li>)}</ul>
+        <ul class="artist-list" aria-label="Flyers del lineup nacional">
+          {nationalFlyers.map((flyer) => (
+            <li>
+              <article aria-label={flyer.name}>
+                <Image
+                  src={flyer.image}
+                  alt={`Flyer oficial: ${flyer.name} — DETTONATE: NEW HORIZONS`}
+                  widths={[360, 720, 1080]}
+                  sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) calc(50vw - 40px), (max-width: 1336px) calc(33.333vw - 48px), 398px"
+                  format="webp"
+                  loading="lazy"
+                />
+                <div class="artist-copy">
+                  {flyer.paragraphs ? (
+                    <div class="artist-description">
+                      {flyer.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                    </div>
+                  ) : (
+                    <div class="editorial-placeholder">
+                      <p class="placeholder-label">Este texto debe reemplazarse</p>
+                      <p>Sugerencia: publicación oficial de la promotora sobre {flyer.name}.</p>
+                    </div>
+                  )}
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section class="tickets section container" id="entradas" aria-labelledby="tickets-title">
-        <div class="section-label"><span class="section-number">03 /</span><span>NOS VEMOS EN LA PISTA</span></div>
-        <div class="tickets-content"><h2 id="tickets-title">CRUZA EL<br /><span>HORIZONTE.</span></h2><div class="tickets-details"><p>10 de octubre de 2026 · 6:00 p. m.<br />The Secret Garden<br /><span>Ciudad de Guatemala</span></p><a class="button" href={tickets} target="_blank" rel="noopener noreferrer">Comprar entradas <span aria-hidden="true">↗</span></a><p class="ticket-note">Venta de entradas a través de FunCapital</p></div></div>
+        <div class="section-label"><span class="section-number">03 /</span><span>TICKETS</span></div>
+        <div class="tickets-content">
+          <div class="tickets-copy">
+            <h2 id="tickets-title">Recuerden Dettonaters, es de sabios comprar sus accesos para la tercera edición de @dettonate_gt 🩵🔥</h2>
+          </div>
+          <div class="tickets-details"><p>10 de octubre de 2026 · 6:00 p. m.<br />The Secret Garden<br /><span>Ciudad de Guatemala</span></p><a class="button" href={tickets} target="_blank" rel="noopener noreferrer">Comprar entradas <span aria-hidden="true">↗</span></a><p class="ticket-note">Venta de entradas a través de FunCapital</p></div>
+        </div>
       </section>
     </main>
 
-    <footer class="site-footer container"><a class="footer-brand" href="#inicio">DETTONATE</a><p>HARD DANCE · GUATEMALA</p><a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a></footer>
+    <footer class="site-footer container">
+      <div class="footer-identity">
+        <a class="footer-brand" href="#inicio">DETTONATE</a>
+        <p>HARD DANCE · GUATEMALA</p>
+      </div>
+      <ul class="social-links" aria-label="Redes sociales de DETTONATE">
+        {socialLinks.map((social) => (
+          <li>
+            {social.url ? (
+              <a class="social-link" href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name} title={social.name}>
+                <span aria-hidden="true" set:html={social.icon} />
+              </a>
+            ) : (
+              <button class="social-link" type="button" disabled aria-label={social.name} title={social.name}>
+                <span aria-hidden="true" set:html={social.icon} />
+              </button>
+            )}
+          </li>
+        ))}
+      </ul>
+      <a class="footer-top" href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
+    </footer>
   </body>
 </html>

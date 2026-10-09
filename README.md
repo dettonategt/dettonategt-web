@@ -40,4 +40,6 @@ Referencia: [Quick Tunnels de Cloudflare](https://developers.cloudflare.com/tunn
 - `src/styles/global.css`: diseño, colores y estilos adaptables.
 - `public/images/`: imágenes originales del evento.
 
-Las fuentes Barlow Condensed y Space Grotesk se cargan desde Google Fonts; hay fuentes de respaldo para conexiones sin acceso a ese servicio.
+La tipografía Montserrat se incluye localmente mediante `@fontsource/montserrat`, sin solicitudes a Google Fonts. Se utilizan los pesos 400, 500, 600 y 700, con Arial como respaldo.
+
+Los iconos sociales son SVG locales de [Bootstrap Icons](https://github.com/twbs/icons), con su licencia MIT en `src/icons/social/LICENSE`. Los enlaces se configuran en `socialLinks` dentro de `src/pages/index.astro`; mientras `url` sea `null`, el icono queda desactivado.
